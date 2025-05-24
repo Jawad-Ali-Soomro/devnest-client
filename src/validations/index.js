@@ -1,3 +1,4 @@
 import { loginYupSchema } from "./loginSchema";
+import registerSchema from "./registerSchema";
 
-export {loginYupSchema}
+export {loginYupSchema, registerSchema}

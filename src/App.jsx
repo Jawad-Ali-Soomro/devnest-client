@@ -1,13 +1,27 @@
 import './App.css'
-import { Login } from './pages'
+import ProtectedRoute from './hooks/ProtectedRoutes'
+import { Login, Register } from './pages'
 import {Routes, Route} from 'react-router-dom'
+import Home from './pages/Home'
 
 function App() {
   const commonRoutes = [
     {
       path: '/',
       element : <Login />
+    },
+    {
+      path: '/register',
+      element : <Register />
+    },
+      {
+      path: '/home',
+      element : <ProtectedRoute>
+        <Home />
+      </ProtectedRoute>
     }
+  
+
   ]
   return (
     <>

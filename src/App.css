@@ -3,7 +3,9 @@
 }
 
 * {
-  font-family: "Signika Negative";
+  font-family: "Signika Negative" !important;
+  font-family: Lilita One ;
+  border-radius: 30px;
 }
 
 .lilita {
@@ -16,4 +18,8 @@
 
 .signika {
   font-family: "Signika Negative";
+}
+
+.icon  {
+  border-radius: 0;
 }
