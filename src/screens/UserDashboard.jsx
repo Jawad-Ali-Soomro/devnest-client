@@ -12,10 +12,10 @@ const toggleDescription = () => {
   setShowMore((prev) => !prev)
 }
 
-const shortDesc = post.description?.slice(0, 110)
+const shortDesc = post.description?.slice(0, 111)
 
 return (
-  <div className="bg-[white] border text-black p-5 flex flex-col w-full md:w-[50%] gap-2 rounded-xl shadow-md">
+  <div className="bg-[white] border text-black p-5 flex flex-col w-full md:w-[50%] gap-2 rounded-xl border-t border-t-[2px] border-yellow-600" style={{borderTopLeftRadius: 0, borderTopRightRadius:0}}>
     
     <div className="flex items-center gap-0 pl-5 pt-2">
       <img
@@ -29,8 +29,11 @@ return (
       fontWeight: 900
     }}>{post.title}</h1>
 
-    <div className="text-sm text-gray-900 px-5 text-justify w-[100%] relative justify-between items-end flex flex-col">
-    <p className='w-[100%] text-justify text-[17px]'>  {showMore ? post.description : shortDesc}</p>
+    <div className="text-sm text-gray-900 px-5 w-[100%] relative justify-between items-end flex flex-col">
+      <p className="w-full text-[17px] text-justify">
+  {showMore ? post.description : shortDesc}
+</p>
+
     {
       post.description.length > 100 && 
         <div className="line w-[90%] h-[1px] border absolute bottom-[25px] right-[75px]"></div>
@@ -95,7 +98,7 @@ return (
     ))}
     <p className='uppercase'> &copy; All Rights reserved devnest.com 2025</p>
   </div>
- <div className="right w-[320px] hidden md:flex fixed top-10 right-10 items-center justify-center p-5 flex-col bg-[#eee] rounded-xl shadow-md">
+ <div className="right w-[320px] border-t border-yellow-600 hidden md:flex fixed top-10 right-10 items-center justify-center p-5 flex-col bg-[#eee] rounded-xl shadow-md" style={{borderTopRightRadius: 0, borderTopLeftRadius:0}}>
   <img src='/logo.png' className='h-[80px]' alt="logo" />
 
   <h1 className='uppercase text-[10px] text-center mt-2'>
