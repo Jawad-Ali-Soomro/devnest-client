@@ -23,6 +23,11 @@ return (
         alt="avatar"
         className="w-14 h-14 rounded-full object-cover"
       />
+      <div className="flex flex-col ml-2">
+
+      <h1 className='font-bold text-[20px]'>{post?.author?.firstName} {post?.author?.lastName}</h1>
+      <h1 className='uppercase text-[10px]'>{post?.author?.designation}</h1>
+      </div>
     </div>
 
     <h1 className='lilita text-[25px] pl-5' style={{
@@ -96,9 +101,8 @@ return (
     {posts.map((post, idx) => (
       <PostCard key={idx} post={post} />
     ))}
-    <p className='uppercase'> &copy; All Rights reserved devnest.com 2025</p>
   </div>
- <div className="right w-[320px] border-t border-yellow-600 hidden md:flex fixed top-10 right-10 items-center justify-center p-5 flex-col bg-[#eee] rounded-xl shadow-md" style={{borderTopRightRadius: 0, borderTopLeftRadius:0}}>
+ <div className="right w-[320px] border-t border-yellow-600 hidden md:flex fixed top-26 right-10 items-center justify-center p-5 flex-col bg-[#eee] rounded-xl shadow-md" style={{borderTopRightRadius: 0, borderTopLeftRadius:0}}>
   <img src='/logo.png' className='h-[80px]' alt="logo" />
 
   <h1 className='uppercase text-[10px] text-center mt-2'>

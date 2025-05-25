@@ -1,6 +1,6 @@
 import './App.css'
 import ProtectedRoute from './hooks/ProtectedRoutes'
-import { Login, Register } from './pages'
+import { Login, Profile, Register } from './pages'
 import {Routes, Route} from 'react-router-dom'
 import Home from './pages/Home'
 
@@ -18,6 +18,12 @@ function App() {
       path: '/home',
       element : <ProtectedRoute>
         <Home />
+      </ProtectedRoute>
+    },
+     {
+      path: '/profile',
+      element : <ProtectedRoute>
+        <Profile />
       </ProtectedRoute>
     }
   
