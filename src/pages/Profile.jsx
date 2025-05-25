@@ -5,6 +5,11 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Folder } from 'lucide-react'
+import { Newspaper } from 'lucide-react'
+import { Users2 } from 'lucide-react'
+import { Briefcase } from 'lucide-react'
 
 const Profile = () => {
   const { user, mutate } = useFetchUser()
@@ -227,6 +232,39 @@ const Profile = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="tabs">
+        <Tabs defaultValue="posts" className={'w-[90%] ml-[5%]  mt-10'}>
+            <TabsList className={'w-[230px] h-14 '} style={{
+              marginLeft: 'calc(100% - 230px)'
+            }}>
+            <TabsTrigger className={'uppercase cursor-pointer h-14'} value="projects">
+              <Folder className='icon' />
+            </TabsTrigger>
+             <TabsTrigger className={'uppercase cursor-pointer h-14'} value="posts">
+              <Newspaper className='icon' />
+            </TabsTrigger>
+              <TabsTrigger className={'uppercase cursor-pointer h-14'} value="friends">
+              <Users2 className='icon' />
+            </TabsTrigger>
+             <TabsTrigger className={'uppercase cursor-pointer h-14'} value="experience">
+              <Briefcase className='icon' />
+            </TabsTrigger>
+          </TabsList>
+          <TabsContent value="projects">
+            <h1>Your Projects</h1>
+          </TabsContent>
+           <TabsContent value="posts">
+            <h1>Your Posts</h1>
+          </TabsContent>
+            <TabsContent value="friends">
+            <h1>Your Friends</h1>
+          </TabsContent>
+             <TabsContent value="experience">
+            <h1>Your Experience</h1>
+          </TabsContent>
+        </Tabs>
         </div>
       </div>
     </div>

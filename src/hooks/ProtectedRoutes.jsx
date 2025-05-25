@@ -75,9 +75,6 @@ const ProtectedRoute = ({ children }) => {
               <div className="flex w-12 items-center justify-center h-12 border cursor-pointer bg-[#eee]">
               <Layout className='icon' />
             </div>
-             <div className="flex w-40 uppercase text-sm font-bold items-center justify-center h-12  cursor-pointer bg-[#111] text-white" onClick={() => navigate('/profile')}>
-             update profile
-            </div>
           </div>
         </div>
       <div className="mt-15">
