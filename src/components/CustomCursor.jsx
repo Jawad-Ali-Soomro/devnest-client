@@ -42,11 +42,11 @@ export default function CustomCursor() {
         return {
           width: 1,
           height: 24,
-          backgroundColor: "rgba(255, 255, 255, 0.5)",
+          backgroundColor: "rgba(0, 0, 0, 0.5)",
         };
       case "move":
         return {
-          backgroundColor: "rgba(255,255,255,1)",
+          backgroundColor: "rgba(0,0,0,1)",
           borderRadius: "4px",
           transform: "translate(-50%, -50%) rotate(45deg)",
           width: 23,
@@ -54,7 +54,7 @@ export default function CustomCursor() {
         };
       default:
         return {
-          backgroundColor: "rgba(255, 255, 255, 0.1)",
+          backgroundColor: "rgba(0, 0, 0, 0.1)",
         };
     }
   };
@@ -65,8 +65,8 @@ export default function CustomCursor() {
         position: "fixed",
         top: position.y,
         left: position.x,
-        width: 100,
-        height: 100,
+        width: 30,
+        height: 30,
         borderRadius: "50%",
         pointerEvents: "none",
         transform: "translate(-50%, -50%)",

@@ -6,7 +6,9 @@ import { FaAt, FaRegEnvelopeOpen, FaAngleLeft } from "react-icons/fa6";
 import { LuKey } from "react-icons/lu";
 import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import { registerSchema } from "../schema";
-import { FcGoogle } from "react-icons/fc";
+import { useNavigate } from "react-router-dom";
+import { API_BASE_URL, API_ENDPOINTS } from "../constants";
+import axios from "axios";
 
 const Register = () => {
   const [tab, setTab] = useState(1);
@@ -22,11 +24,44 @@ const Register = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data) => {
-    const file = data.profilePicture[0];
-    console.log("Form submitted:", data);
-    console.log("Selected file:", file);
-  };
+   const navigate = useNavigate();
+  
+    React.useEffect(() => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        navigate("/dashboard");
+      }
+    }, [navigate]);
+
+  const onSubmit = async (data) => {
+  const file = data.profilePicture[0];
+  const formData = new FormData();
+  formData.append("email", data.email);
+  formData.append("password", data.password);
+  formData.append("profilePicture", file);
+  formData.append("firstName", data.firstName);
+  formData.append("lastName", data.lastName);
+  formData.append("username", data.username);
+
+  try {
+    const response = await axios.post(`${API_BASE_URL}/${API_ENDPOINTS.REGISTER}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+       if(response.data.success) {
+       localStorage.setItem("token", response.data.token);
+       window.location.replace("/dashboard");
+       window.location.reload()
+     }
+
+    console.log("Registration success:", response.data);
+  } catch (error) {
+    console.error("Registration failed:", error.response?.data || error.message);
+  }
+};
+
 
   const goNext = async () => {
     let isValid = false;
@@ -228,7 +263,7 @@ const Register = () => {
                 transition: "width 0.3s ease",
                 borderRadius: "10px",
                 height: "5px",
-                background: tab === t ? "#0154b7" : "rgba(255,255,255,0.1)",
+                background: tab === t ? "#0154b7" : "rgba(0,0,0,0.1)",
                 margin: "0 5px",
               }}
             />

@@ -4,9 +4,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import "../styles/Register.scss";
 import { FaRegEnvelopeOpen } from "react-icons/fa6";
 import { LuKey } from "react-icons/lu";
-import { BsGithub } from "react-icons/bs";
-import { FcGoogle } from "react-icons/fc";
 import { loginSchema } from "../schema"; // Make sure you define this
+import axios from "axios";
+import { API_BASE_URL, API_ENDPOINTS } from "../constants";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -18,8 +19,26 @@ const Login = () => {
     mode: "onChange",
   });
 
-  const onSubmit = (data) => {
-    console.log("Login submitted:", data);
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/dashboard");
+      window.location.reload()
+    }
+  }, [navigate]);
+
+  const onSubmit = async (data) => {
+   try {
+     const api = await axios.post(`${API_BASE_URL}/${API_ENDPOINTS.LOGIN}`, data)
+     if(api.data.success) {
+       localStorage.setItem("token", api.data.token);
+       window.location.replace("/dashboard");
+     }
+   } catch (error) {
+    console.log(error)
+   }
   };
 
   return (
