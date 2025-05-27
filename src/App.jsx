@@ -1,12 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import {CustomCursor} from "./components";
-import { Register } from "./pages";
+import { Register, Login } from "./pages";
 
 const App = () => {
   const commonRoutes  = [
     {
       path: '/register',
       element:<Register />
+    },
+     {
+      path: '/',
+      element:<Login />
     }
   ]
   return (

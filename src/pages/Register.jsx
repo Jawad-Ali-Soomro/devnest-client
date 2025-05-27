@@ -5,7 +5,8 @@ import "../styles/Register.scss";
 import { FaAt, FaRegEnvelopeOpen, FaAngleLeft } from "react-icons/fa6";
 import { LuKey } from "react-icons/lu";
 import { MdOutlineDriveFileRenameOutline } from "react-icons/md";
-import {registerSchema} from "../schema";
+import { registerSchema } from "../schema";
+import { FcGoogle } from "react-icons/fc";
 
 const Register = () => {
   const [tab, setTab] = useState(1);
@@ -118,6 +119,7 @@ const Register = () => {
               )}
 
               <div className="flex btns">
+          
                 {tab < 3 && (
                   <button type="button" onClick={goNext}>
                     Next
@@ -205,13 +207,15 @@ const Register = () => {
                 >
                   <FaAngleLeft />
                 </button>
-                <button type="submit" style={{ width: "400px" }}>
+                <button type="submit" style={{ width: "300px" }}>
                   Submit
                 </button>
               </div>
             </div>
           )}
         </form>
+
+        <button className="btn-login" onClick={() => window.location.replace("/")}>Login</button>
 
         <div className="bottom-count flex">
           {[1, 2, 3].map((t) => (

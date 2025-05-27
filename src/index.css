@@ -5,6 +5,11 @@
 }
 
 
+body {
+  background: #111;
+  color: white;
+}
+
 .flex {
   display: flex;
   justify-content: center;
