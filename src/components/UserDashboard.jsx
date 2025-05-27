@@ -1,10 +1,10 @@
 import React from 'react'
+import TopBar from './TopBar'
 
 const UserDashboard = () => {
-    
   return (
     <div>
-        <h1>Welcome TO User Dashboard</h1>
+      <TopBar />
     </div>
   )
 }

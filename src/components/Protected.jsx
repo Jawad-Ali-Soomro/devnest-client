@@ -9,39 +9,41 @@ import {
   GoSidebarCollapse,
   GoSidebarExpand,
 } from "react-icons/go";
-import { SlFeed } from "react-icons/sl";
-import { BsListTask } from "react-icons/bs";
+import { SlFeed, SlOrganization } from "react-icons/sl";
+import { BsListTask, BsPlus, BsUiChecksGrid } from "react-icons/bs";
 import { FiSettings } from "react-icons/fi";
 import { API_BASE_URL } from "../constants";
 import { IoIosLogOut } from "react-icons/io";
 import { getUser } from "../hooks";
 import { HiOutlineLogout } from "react-icons/hi";
+import { CiGrid32 } from "react-icons/ci";
 
 const roleBasedLinks = {
   user: [
-    { path: "/dashboard", icon: <GrHomeRounded className="cursor-pointer" /> },
+    { path: "/dashboard", icon: <GrHomeRounded className="cursor-pointer"  /> },
     {
       path: "/projects",
-      icon: <IoBriefcaseOutline className="cursor-pointer" />,
+      icon: <IoBriefcaseOutline className="cursor-pointer"  />,
     },
-    { path: "/tasks", icon: <BsListTask className="cursor-pointer" /> },
-    { path: "/code", icon: <GoFileCode className="cursor-pointer" /> },
+    { path: "/tasks", icon: <BsUiChecksGrid className="cursor-pointer"  /> },
+    { path: "/code", icon: <GoFileCode className="cursor-pointer"  /> },
     {
       path: "/organizations",
-      icon: <GoOrganization className="cursor-pointer" />,
+      icon: <GoOrganization className="cursor-pointer"  />,
     },
-    { path: "/feed", icon: <SlFeed className="cursor-pointer" /> },
+    { path: "/feed", icon: <SlFeed className="cursor-pointer"  /> },
+
   ],
   admin: [
-    { path: "/dashboard", icon: <GrHomeRounded className="cursor-pointer" /> },
+    { path: "/dashboard", icon: <GrHomeRounded className="cursor-pointer"  /> },
     {
       path: "/manage/organizations",
-      icon: <GoOrganization className="cursor-pointer" />,
+      icon: <SlOrganization className="cursor-pointer"  />,
     },
-    { path: "/manage/feed", icon: <SlFeed className="cursor-pointer" /> },
+    { path: "/manage/feed", icon: <SlFeed className="cursor-pointer"  /> },
     {
       path: "/manage/settings",
-      icon: <FiSettings className="cursor-pointer" />,
+      icon: <FiSettings className="cursor-pointer"  />,
     },
   ],
 };
@@ -86,7 +88,7 @@ const Protected = ({ children }) => {
         }}
       >
        
-        <div className="flex col" style={{ marginTop: "50px", gap: "10px" }}>
+        <div className="flex col navigation" style={{ marginTop: "0px", gap: "10px" }}>
           {roleBasedLinks[role].map((link, index) => (
             <a
               key={index}
@@ -95,8 +97,7 @@ const Protected = ({ children }) => {
               onClick={() => setShowSidebar(false)}
               style={{
                 background:
-                  window.location.pathname === link.path ? "#0154b7" : "",
-                color: window.location.pathname === link.path ? "white" : "",
+                  window.location.pathname === link.path ? "#eee" : link.path === "/add" ? "white" : "",
               }}
             >
               {link.icon}
@@ -104,6 +105,17 @@ const Protected = ({ children }) => {
           ))}
         </div>
         <div className="bottom">
+             <div
+            className="icon flex"
+            style={{
+                marginBottom:'5px',
+                background: '#0154b7',
+                color:'white',
+                fontSize:'2rem'
+            }}
+          >
+            <BsPlus />
+          </div>
           <img src={`${API_BASE_URL}/${userInfo?.profilePicture}`} alt="" />
           <div
             className="icon flex"
@@ -114,11 +126,12 @@ const Protected = ({ children }) => {
           >
             <HiOutlineLogout />
           </div>
+          
         </div>
       </div>
       <div
         className="bars flex col"
-        style={{ left: "35px" }}
+        style={{ left: showSidebar ? "35px" : "35px" }}
         onClick={() => setShowSidebar(!showSidebar)}
       >
         {showSidebar ? (
@@ -132,7 +145,7 @@ const Protected = ({ children }) => {
           width: showSidebar ? "calc(100% - 120px)" : "calc(100% - 30px)",
           paddingLeft: "20px",
           transition: ".4s",
-          marginTop: showSidebar ? "0" : "70px",
+          marginTop:'30px'
         }}
       >
         {children}

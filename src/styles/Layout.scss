@@ -11,16 +11,22 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  .navigation {
+    padding: 10px;
+    background: white;
+    border-radius: 35px;
+  }
   a {
     width: 60px;
     height: 60px;
-    background: #7731d818;
     font-size: 1.2rem;
-    color: #7731d8;
+    color: black;
     border-radius: 30px;
   }
   .bottom {
-    position: fixed;
+    padding: 10px;
+    border-radius: 35px;
+    background: white;
 
     bottom: 40px;
     img {
@@ -46,8 +52,8 @@
 .bars {
   gap: 5px;
   left: 0;
-  top: 20px;
-  position: absolute;
+  bottom: 20px;
+  position: fixed;
   cursor: pointer;
   transition: 0.3s;
   align-items: start;
