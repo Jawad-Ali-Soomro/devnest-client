@@ -1,45 +1,29 @@
-import './App.css'
-import ProtectedRoute from './hooks/ProtectedRoutes'
-import { Login, Profile, Register } from './pages'
-import {Routes, Route} from 'react-router-dom'
-import Home from './pages/Home'
+import { Route, Routes } from "react-router-dom";
+import {CustomCursor} from "./components";
+import { Register } from "./pages";
 
-function App() {
-  const commonRoutes = [
-    {
-      path: '/',
-      element : <Login />
-    },
+const App = () => {
+  const commonRoutes  = [
     {
       path: '/register',
-      element : <Register />
-    },
-      {
-      path: '/home',
-      element : <ProtectedRoute>
-        <Home />
-      </ProtectedRoute>
-    },
-     {
-      path: '/profile',
-      element : <ProtectedRoute>
-        <Profile />
-      </ProtectedRoute>
+      element:<Register />
     }
-  
-
   ]
   return (
     <>
+      <CustomCursor />
       <Routes>
         {
-          commonRoutes.map((route, idx) => {
-            return <Route path={route.path} element={route.element} key={idx} />
-          } )
+          commonRoutes.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={route.element}
+            />
+          ))
         }
       </Routes>
     </>
-  )
-}
-
-export default App
+  );
+};
+export default App;

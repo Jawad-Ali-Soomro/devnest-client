@@ -1,0 +1,137 @@
+.main-container {
+  justify-content: space-between;
+  .register-container {
+    background: #111;
+    color: white;
+    width: 100%;
+    height: 100vh;
+    img {
+      width: 150px;
+    }
+    .quote {
+      margin-top: 50px;
+      text-transform: uppercase;
+      gap: 10px;
+      h1 {
+        font-size: 1.2rem;
+        font-weight: 900;
+        span {
+          color: #0154b7;
+          font-weight: 900;
+        }
+      }
+      p {
+        max-width: 350px;
+        text-align: center;
+        font-size: 0.8rem;
+        span {
+          color: #0154b7;
+          font-weight: 900;
+        }
+      }
+    }
+    .tab-container {
+      margin-top: 50px;
+      gap: 10px;
+      align-items: start;
+      .error {
+        color: #ef5e79;
+        font-size: 0.8rem;
+        margin-top: 5px;
+        text-transform: uppercase;
+      }
+      .input-wrapper {
+        padding-left: 15px;
+        padding-right: 10px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        transition: 0.3s;
+        border: 1px solid #80808090;
+        outline: none;
+        border-radius: 30px;
+        background: rgba($color: white, $alpha: .1);
+        input {
+          width: 400px;
+          height: 50px;
+          background: transparent;
+          border: none;
+          outline: none;
+          padding-left: 10px;
+          color: white;
+        }
+      }
+      .input-wrapper:focus-within {
+        border: 1px solid #80808090;
+        background: transparent;
+      }
+      .upload-box {
+        border: 2px dashed #0154b7;
+        width: 450px;
+        height: 142px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #888;
+        cursor: pointer;
+        border-radius: 30px;
+        margin-bottom: 30px;
+      }
+      .btns {
+        width: 100%;
+        gap: 10px;
+        justify-content: end;
+        align-items: end;
+        button {
+          margin-top: 10px;
+          width: 150px;
+          height: 50px;
+          background: #0154b7;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          outline: none;
+          text-transform: uppercase;
+          color: white;
+          border-radius: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+    .bottom-count {
+      margin-top: 50px;
+      gap: 5px;
+      .counter {
+        width: 20px;
+        height: 20px;
+        background: #0154b7;
+      }
+    }
+  }
+  .left {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      width: 80%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+}
+
+
+@media (max-width: 1366px) {
+    .main-container {
+        .left {
+            display: none;
+        }
+        .register-container {
+            width: 100%;
+        }
+    }
+}
