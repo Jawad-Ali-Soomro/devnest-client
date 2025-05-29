@@ -10,7 +10,8 @@ import {
   GoSidebarExpand,
 } from "react-icons/go";
 import { SlFeed, SlOrganization } from "react-icons/sl";
-import { BsListTask, BsPlus, BsUiChecksGrid } from "react-icons/bs";
+import { BsListTask, BsPlus, BsUiChecksGrid } from "react-icons/bs"
+import { GiSkills } from 'react-icons/gi';
 import { FiSettings } from "react-icons/fi";
 import { API_BASE_URL } from "../constants";
 import { IoIosLogOut } from "react-icons/io";
@@ -32,6 +33,7 @@ const roleBasedLinks = {
       icon: <GoOrganization className="cursor-pointer"  />,
     },
     { path: "/feed", icon: <SlFeed className="cursor-pointer"  /> },
+    { path: "/skills", icon: <GiSkills className="cursor-pointer"  /> },
 
   ],
   admin: [

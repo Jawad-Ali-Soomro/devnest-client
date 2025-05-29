@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import {CustomCursor, Protected} from "./components";
 import { Register, Login, Dashboard } from "./pages";
+import Project from "./pages/Project";
 
 const App = () => {
   const commonRoutes  = [
@@ -16,6 +17,12 @@ const App = () => {
       path: '/dashboard',
       element:<Protected>
         <Dashboard />
+      </Protected>
+    },
+    {
+      path: '/projects',
+      element:<Protected>
+        <Project />
       </Protected>
     }
   ]
