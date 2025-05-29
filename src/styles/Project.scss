@@ -1,19 +1,21 @@
 .main-project {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
   justify-content: end;
   margin-top: 50px;
-  button {
+  .sticky {
+    margin-right: 100px;
+    margin-top: 30px;
+  }
+  .btn-top {
     width: 180px;
-    height: 40px;
-    border-radius: 20px;
+    height: 50px;
+    border-radius: 25px;
     text-transform: uppercase;
     background: white;
     border: 1px;
-    font-weight: 600;
     position: relative;
   }
-  button:first-child:after {
+  .btn-top:first-child:after {
     content: "";
     width: 10px;
     height: 10px;
@@ -24,7 +26,7 @@
     right: -16.5px;
     border-radius: 50%;
   }
-  button:last-child {
+  .btn-top:last-child {
     margin-left: 20px;
     background: black;
     color: white;
@@ -90,23 +92,75 @@
       }
     }
     .btns {
-      width: 100%;
+      width: 90%;
+      margin-left: 10%;
       margin-top: 20px;
-      justify-content: space-between;
+      justify-content: end !important;
       .btn {
         width: 100%;
         height: 50px;
         background: black;
+        border: none;
+        text-transform: uppercase;
+        color: white;
         border-radius: 25px;
+        font-weight: 600;
         .btn::after {
           width: 0;
           height: 0;
           border: none;
         }
+        button {
+          width: 150%;
+        }
       }
       button:first-child {
         border: 1px solid #80808090;
         background: transparent;
+        color: black;
+      }
+    }
+  }
+}
+
+.add-popup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  backdrop-filter: blur(5px);
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  .container {
+    padding: 30px;
+    background: white;
+    border-radius: 30px;
+    .upload {
+      width: 100px;
+      height: 100px;
+      border: 2px dashed;
+      border-radius: 50%;
+      position: relative;
+      img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: white;
+        border: 1px solid #80808090;
+        padding: 10px;
+        border-radius: 50%;
+      }
+      input {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        opacity: 0;
+        z-index: 100;
+        top: 0;
+        background: orange;
+      }
+      p {
+        text-transform: uppercase;
       }
     }
   }
