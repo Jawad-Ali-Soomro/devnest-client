@@ -110,8 +110,8 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 .contrast {
-  background: #eeeeeecc; /* lighter and slightly more opaque */
-  color: #222222; /* darker text for sharper contrast */
+  background: white;
+  color: #555; 
 
   --card: oklch(0.18 0.12 30); /* lighter + more chroma */
   --card-foreground: oklch(0.98 0.01 270); /* near white, slight blue tint */
@@ -119,8 +119,8 @@
   --popover: oklch(0.22 0.15 260);
   --popover-foreground: oklch(0.98 0 0);
 
-  --primary: oklch(0.95 0.35 25); /* vivid orange-red */
-  --primary-foreground: oklch(0.20 0.10 270); /* darker bluish text */
+  --primary: #333; /* vivid orange-red */
+  --primary-foreground: white; /* darker bluish text */
 
   --secondary: oklch(0.40 0.25 245); /* deeper blue */
   --secondary-foreground: oklch(0.98 0 0);
@@ -164,8 +164,8 @@
     @apply bg-background text-foreground;
     font-family: 'Signika Negative';
   }
-  .font-code {
-    font-family: 'Cascadia Code';
+  .font-nunito {
+    font-family: 'Nunito Sans';
   }
   .font-signika {
     font-family: 'Signika Negative';
@@ -178,3 +178,12 @@
   }
   
 }
+
+span {
+  color: gold;
+}
+
+button {
+  background: gold;
+}
+

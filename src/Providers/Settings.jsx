@@ -7,24 +7,29 @@ import { GrPowerReset } from "react-icons/gr";
 import { LuFullscreen } from "react-icons/lu";
 
 const ThemeSettings = ({ isOpen }) => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(true);
   const [isContrast, setIsContrast] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [colorSpan, setColor] = useState("blue");
+  const [colorSpan, setColor] = useState("gold");
   const [selectedFont, setFont] = useState("font-signika");
 
   useEffect(() => {
-    const fonts = ["font-code", "font-signika", "font-dm", "font-space"];
+    const fonts = ["font-nunito", "font-signika", "font-dm", "font-space"];
     fonts.forEach((f) => document.body.classList.remove(f));
     document.body.classList.add(selectedFont);
   }, [selectedFont]);
 
   useEffect(() => {
-    const span = document.getElementsByTagName("span")[0];
-    if (span) {
-      span.style.color = colorSpan;
-    }
-  }, [colorSpan]);
+  const spans = document.getElementsByTagName("span");
+  const buttons = document.getElementsByTagName("button");
+  [...spans].forEach(span => {
+    span.style.color = colorSpan;
+  });
+   [...buttons].forEach(button => {
+    button.style.background = colorSpan;
+  });
+}, [colorSpan]);
+
 
   useEffect(() => {
     if (isDark) {
@@ -56,7 +61,7 @@ const ThemeSettings = ({ isOpen }) => {
   ];
 
   const fontOptions = [
-    { name: "Cascadia Code", class: "font-code" },
+    { name: "Nunito Sans", class: "font-nunito" },
     { name: "Signika Negative", class: "font-signika" },
     { name: "DM Sans", class: "font-dm" },
     { name: "Space Grotesk", class: "font-space" },

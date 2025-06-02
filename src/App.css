@@ -7,6 +7,7 @@ body {
     font-family: "Lilita One" !important;
 }
 
-.font-poppins {
-    font-family: Poppins;
+#nprogress  {
+  background: orange !important;
+  height: 4px !important;
 }
