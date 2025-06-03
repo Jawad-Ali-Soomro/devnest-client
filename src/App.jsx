@@ -6,7 +6,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 
-NProgress.configure({  });
+NProgress.configure({ showSpinner: false });
 
 const App = () => {
   const [openSettings, setOpenSettings] = React.useState(false);

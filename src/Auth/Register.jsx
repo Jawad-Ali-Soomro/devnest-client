@@ -35,7 +35,7 @@ const Register = () => {
           </span>
           <input
             type="text"
-            className="border-none w-[153] pl-2 h-12 outline-none bg-transparent"
+            className="border-none w-[180px] pl-2 h-12 outline-none bg-transparent"
           />
         </div>
         <div className="border w-[195px] h-13 rounded-lg relative">
@@ -44,7 +44,7 @@ const Register = () => {
           </span>
           <input
             type="text"
-            className="border-none w-[153] pl-2 h-12 outline-none bg-transparent"
+            className="border-none w-[180px] pl-2 h-12 outline-none bg-transparent"
           />
         </div>
         </div>

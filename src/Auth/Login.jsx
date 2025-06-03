@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { useNavigate } from 'react-router-dom'
+import Forgot from "./Forgot";
 
 const Login = () => {
   const navigate = useNavigate()
+  const [forgotPassword, setForgotPassword] = React.useState(false)
   return (
     <div className="flex w-[100%] h-[100vh] flex items-center justify-center flex-col">
       <span className="w-25 h-25 flex items-center justify-center">
@@ -46,10 +48,13 @@ const Login = () => {
             className="border-none w-[398px] pl-2 h-12 outline-none bg-transparent"
           />
         </div>
-        <span className="uppercase text-sm cursor-pointer font-semibold">Forgot Password?</span>
+        <span className="uppercase text-sm cursor-pointer font-semibold" onClick={() => setForgotPassword(true)}>Forgot Password?</span>
         <Button className={"w-[100%] rounded-lg cursor-pointer h-12 font-semibold text-lg"}>LOGIN</Button>
         <p className="uppercase text-sm">Don't have an account <span className="cursor-pointer font-semibold" onClick={() => navigate('/register')}>Create account?</span></p>
       </form>
+        {
+          forgotPassword && <Forgot onClose={() => setForgotPassword(false)} isOpen={forgotPassword} />
+        }
     </div>
   );
 };

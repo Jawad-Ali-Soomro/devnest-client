@@ -7,10 +7,10 @@ import { GrPowerReset } from "react-icons/gr";
 import { LuFullscreen } from "react-icons/lu";
 
 const ThemeSettings = ({ isOpen }) => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const [isContrast, setIsContrast] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [colorSpan, setColor] = useState("gold");
+  const [colorSpan, setColor] = useState("blue");
   const [selectedFont, setFont] = useState("font-signika");
 
   useEffect(() => {
