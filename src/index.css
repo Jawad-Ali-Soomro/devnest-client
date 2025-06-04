@@ -44,7 +44,8 @@
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* --foreground: oklch(0.145 0 0); */
+  --foreground: rgba(0,0,0,.6);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -111,7 +112,7 @@
 }
 .contrast {
   background: white;
-  color: #555; 
+  color: black; 
 
   --card: oklch(0.18 0.12 30); /* lighter + more chroma */
   --card-foreground: oklch(0.98 0.01 270); /* near white, slight blue tint */
@@ -133,7 +134,7 @@
 
   --destructive: oklch(0.80 0.35 15); /* vivid red */
 
-  --border: #66666638; /* stronger border */
+  --border: black; /* stronger border */
   --input: #666666cc;
   --ring: oklch(0.65 0.25 250);
 
@@ -180,10 +181,10 @@
 }
 
 span {
-  color: blue;
+  color: #ec133f;
 }
 
 button {
-  background: blue;
+  background: #ec133f;
 }
 

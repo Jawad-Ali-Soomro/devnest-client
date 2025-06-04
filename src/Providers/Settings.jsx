@@ -10,7 +10,7 @@ const ThemeSettings = ({ isOpen }) => {
   const [isDark, setIsDark] = useState(false);
   const [isContrast, setIsContrast] = useState(false);
   const [isCompact, setIsCompact] = useState(false);
-  const [colorSpan, setColor] = useState("blue");
+  const [colorSpan, setColor] = useState("#ec133f");
   const [selectedFont, setFont] = useState("font-signika");
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const ThemeSettings = ({ isOpen }) => {
   }, [isContrast]);
 
   const colorOptions = [
-    { name: "green", bg: "bg-green-100", src: "/text-green.svg" },
+    { name: "#ec133f", bg: "bg-[#ec133f]/10", src: "/text-green.svg" },
     { name: "blue", bg: "bg-blue-100", src: "/text-blue.svg" },
     { name: "orange", bg: "bg-orange-100", src: "/text-orange.svg" },
     { name: "purple", bg: "bg-purple-100", src: "/text-purple.svg" },
@@ -69,8 +69,8 @@ const ThemeSettings = ({ isOpen }) => {
 
   const getTextColor = (color) => {
     switch (color) {
-      case "green":
-        return "text-green-600";
+      case "lightred":
+        return "text-[#ec133f]";
       case "blue":
         return "text-blue-600";
       case "orange":
@@ -82,7 +82,7 @@ const ThemeSettings = ({ isOpen }) => {
       case "red":
         return "text-red-600";
       default:
-        return "text-black";
+        return "text-[#ec133f]";
     }
   };
 
@@ -195,7 +195,7 @@ const ThemeSettings = ({ isOpen }) => {
               >
                 Aa
               </p>
-              <p className="text-xs font-bold mt-1">{font.name}</p>
+              <p className={`text-xs font-bold mt-1 ${font.class}`}>{font.name}</p>
             </div>
           ))}
         </div>
