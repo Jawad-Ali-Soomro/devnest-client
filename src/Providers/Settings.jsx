@@ -88,8 +88,8 @@ const ThemeSettings = ({ isOpen }) => {
 
   return (
     <div
-      className="w-[400px] h-[100vh] fixed flex-col left-0 top-0 shadow-md transition-transform flex duration-300 pt-10 justify-start items-center bg-white dark:bg-[#121212]"
-      style={{ transform: isOpen ? "translateX(0)" : "translateX(-400px)" }}
+      className="w-[400px] h-[100vh] rounded-none fixed flex-col left-0 top-0 shadow-md transition-transform flex duration-300 pt-10 justify-start items-center bg-white dark:bg-[#121212]"
+      style={{ transform: isOpen ? "translateX(0)" : "translateX(-400px)", borderRadius: '0' }}
     >
       <div className="w-[90%] flex items-end justify-end gap-2">
         <div className="w-[50px] h-[50px] flex items-center justify-center border rounded-full">

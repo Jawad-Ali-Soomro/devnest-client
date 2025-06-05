@@ -186,5 +186,10 @@ span {
 
 button {
   background: #ec133f;
+  color: white;
 }
 
+
+*  {
+  border-radius: 30px;
+}
