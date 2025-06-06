@@ -1,11 +1,14 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 import Forgot from "./Forgot";
+import { EyeClosed } from "lucide-react";
+import { Eye } from "lucide-react";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const [forgotPassword, setForgotPassword] = React.useState(false)
+  const navigate = useNavigate();
+  const [forgotPassword, setForgotPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false)
   return (
     <div className="flex w-[100%] h-[100vh] flex items-center justify-center flex-col">
       <span className="w-25 h-25 flex items-center justify-center">
@@ -21,7 +24,7 @@ const Login = () => {
           </g>
         </svg>
       </span>
-      <h1 className="text-[25px] font-bold uppercase mt-10">Welcome Back!</h1>
+      <h1 className="text-[25px] font-bold uppercase mt-2">Welcome Back!</h1>
       <h1 className="text-[12px] pt-2 uppercase">
         we hope you're <span>doing</span> well, <span>login</span> to{" "}
         <span>access</span> account!
@@ -44,17 +47,44 @@ const Login = () => {
             Password
           </span>
           <input
-            type="text"
+            type={showPassword ? "text" : "password"}
             className="border-none w-[398px] pl-2 h-12 outline-none bg-transparent"
           />
+         <div className="absolute top-3.5 right-4 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>
+           {
+            showPassword ? <EyeClosed /> : <Eye />
+          }
+         </div>
         </div>
-        <span className="uppercase text-sm cursor-pointer font-semibold" onClick={() => setForgotPassword(true)}>Forgot Password?</span>
-        <Button className={"w-[100%] rounded-lg cursor-pointer h-12 font-semibold text-lg"}>LOGIN</Button>
-        <p className="uppercase text-sm">Don't have an account <span className="cursor-pointer font-semibold" onClick={() => navigate('/register')}>Create account?</span></p>
+        <span
+          className="uppercase text-sm cursor-pointer font-semibold"
+          onClick={() => setForgotPassword(true)}
+        >
+          Forgot Password?
+        </span>
+        <Button
+          className={
+            "w-[100%] rounded-lg cursor-pointer h-12 font-semibold text-lg"
+          }
+        >
+          LOGIN
+        </Button>
+        <p className="uppercase text-sm">
+          Don't have an account{" "}
+          <span
+            className="cursor-pointer font-semibold"
+            onClick={() => navigate("/register")}
+          >
+            Create account?
+          </span>
+        </p>
       </form>
-        {
-          forgotPassword && <Forgot onClose={() => setForgotPassword(false)} isOpen={forgotPassword} />
-        }
+      {forgotPassword && (
+        <Forgot
+          onClose={() => setForgotPassword(false)}
+          isOpen={forgotPassword}
+        />
+      )}
     </div>
   );
 };

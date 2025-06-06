@@ -11,3 +11,15 @@ body {
   background: orange !important;
   height: 4px !important;
 }
+
+.animate {
+  animation: animate 1s linear;
+}
+
+@keyframes animate {
+  from {
+    transform: translateX(-100px);
+  } to {
+    transform: translateX(0);
+  }
+}

@@ -21,10 +21,11 @@ const Forgot = ({ isOpen, onClose }) => {
       className={`w-full h-screen fixed top-0 left-0 right-0 bg-[rgba(0,0,0,.3)] flex items-center justify-center transition-opacity duration-300 ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
       onClick={onClose}
     >
-      <div
-        className={`w-full max-w-sm p-10 bg-white dark:bg-[#111] border rounded-xl shadow-lg transform transition-transform duration-300 ${isOpen ? 'translate-y-0' : 'translate-y-[500px]'}`}
-        onClick={e => e.stopPropagation()}
-      >
+    <div
+  className={`w-full max-w-sm p-10 bg-white animate dark:bg-[#111] border rounded-xl shadow-lg transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-[500px]'}`}
+  onClick={e => e.stopPropagation()}
+>
+
         {step === 1 && (
           <div className="flex flex-col space-y-4 relative items-center justify-center w-full">
             <span className='font-bold text-[20px] uppercase ' style={{lineHeight:'5px'}}>Forgot Password</span>
