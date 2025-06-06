@@ -1,7 +1,7 @@
 import { Settings } from "lucide-react";
 import React, { useEffect } from "react";
-import { ThemeSettings } from "./Providers";
-import { Login, Register } from "./Auth";
+import { ThemeSettings } from "./providers";
+import { Login, Register } from "./auth";
 import { Routes, Route, useLocation } from 'react-router-dom';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';

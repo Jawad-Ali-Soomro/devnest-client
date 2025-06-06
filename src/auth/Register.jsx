@@ -1,19 +1,12 @@
+/* eslint-disable no-unused-vars */
 import { Button } from "@/components/ui/button";
 import { Eye, EyeClosed } from "lucide-react";
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from "yup";
-
-// Validation schema
-const schema = yup.object().shape({
-  firstName: yup.string().required("First name is required"),
-  lastName: yup.string().required("Last name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-  profilePicture: yup.mixed().required("profilePicture is required")
-});
+import { registerSchema } from "@/schema";
+import { axiosFormInstance } from "@/utils";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -26,7 +19,7 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(schema)
+    resolver: yupResolver(registerSchema)
   });
 
   const profilePictureFile = watch("profilePicture");
@@ -39,7 +32,7 @@ const Register = () => {
     }
   }, [profilePictureFile]);
 
- const onSubmit = (data) => {
+ const onSubmit = async (data) => {
   const randomSuffix = Math.floor(1000 + Math.random() * 9000); 
   const username = `${data.firstName}.${data.lastName}.${randomSuffix}`.toLowerCase();
 
@@ -47,8 +40,11 @@ const Register = () => {
     ...data,
     username,
   };
-
   console.log("Submitted Data:", formData);
+  const response = await axiosFormInstance.post('/user/new', {
+    formData
+  })
+  console.log(response.data)
 };
 
 
