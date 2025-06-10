@@ -32,20 +32,22 @@ const Register = () => {
     }
   }, [profilePictureFile]);
 
- const onSubmit = async (data) => {
+const onSubmit = async (data) => {
   const randomSuffix = Math.floor(1000 + Math.random() * 9000); 
   const username = `${data.firstName}.${data.lastName}.${randomSuffix}`.toLowerCase();
 
-  const formData = {
-    ...data,
-    username,
-  };
-  console.log("Submitted Data:", formData);
-  const response = await axiosFormInstance.post('/user/new', {
-    formData
-  })
-  console.log(response.data)
+  const formData = new FormData();
+  formData.append('firstName', data.firstName);
+  formData.append('lastName', data.lastName);
+  formData.append('email', data.email);
+  formData.append('password', data.password);
+  formData.append('username', username);
+  formData.append('profilePicture', data.profilePicture[0]); // assuming it's a FileList
+
+  const response = await axiosFormInstance.post('/user/new', formData);
+  console.log(response.data);
 };
+
 
 
 
